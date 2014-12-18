@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Posted Articles</title>
+  <link rel="stylesheet" type="text/css" href="css/normalize.css" media="screen">
+  <link href="/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container-fluid text-center">
+
+
+  <div>
+    <h1>news.old</h1>
+  </div>
+
+  <div>
+    <p> <%= "#{@post_array}" %> </p>
+  </div>
+
+  <div>
+
+      <% @csv_file.each do |article| %>
+        <% article_array = article.split(",") %>
+        <div>
+        <ul>
+            <li>Title: <%= "#{article_array.at(0)}" %></li>
+
+            <li>Website: <a href="https://<%= article_array.at(1) %>"><%= "#{article_array.at(1)}" %></a></li>
+
+            <li>Description: <%= "#{article_array.at(2)}" %></li>
+        </ul>
+        <br></br>
+      </div>
+        <% end %>
+
+  </div>
+
+  <a href='/articles/new'>Post a New Article</a>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+</body>
+</html>
